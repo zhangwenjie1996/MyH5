@@ -118,11 +118,21 @@
         this.nowMinute = now.getMinutes();
         this.nowSecond = now.getSeconds();
     };
+    Clock.prototype.InterVal = function () {
+        clearInterval(this.timer);
+        var _this = this;
+        this.timer = setInterval(function () {
+            _this.getNowTime();
+            _this.timeLabel.innerHTML = _this.getZero(_this.nowHour) + ":" + _this.getZero(_this.nowMinute) + ":" + _this.getZero(_this.nowSecond);
+            _this.setPosition();
+        }, 1000);
+    };
     Clock.prototype.setPosition = function () {
         this.second.style.transform = "rotate(" + (this.nowSecond * 6 - 90) + "deg)";
         this.minute.style.transform = "rotate(" + (this.nowMinute * 6 + 1 / 10 * this.nowSecond - 90) + "deg)";
         this.hour.style.transform = "rotate(" + (this.nowHour * 30 + 1 / 2 * this.nowMinute + 1 / 120 * this.nowSecond - 90) + "deg)";
     };
+
     Clock.prototype.getZero = function (value) {
         return value < 10 ? '0' + value : value;
     };
@@ -140,15 +150,7 @@
         this.setPosition();
     };
 
-    Clock.prototype.InterVal = function () {
-        clearInterval(this.timer);
-        var _this = this;
-        this.timer = setInterval(function () {
-            _this.getNowTime();
-            _this.timeLabel.innerHTML = _this.getZero(_this.nowHour) + ":" + _this.getZero(_this.nowMinute) + ":" + _this.getZero(_this.nowSecond);
-            _this.setPosition();
-        }, 1000);
-    };
+
     window.onload = function () {
         new Clock();
     };
