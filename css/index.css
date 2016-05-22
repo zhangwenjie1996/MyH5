@@ -92,8 +92,8 @@ ul, li {
     color: #fff;
     text-align: center;
     font-size: 32px;
-    -webkit-animation: 1s infinite jl 2.5s;
-    animation: 1s infinite jl 2.5s;
+    -webkit-animation: 1s infinite jl 3s;
+    animation: 1s infinite jl 3s;
 
 }
 
@@ -201,8 +201,8 @@ ul, li {
     position: absolute;
     right: 20%;
     bottom: 90px;
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
 }
 
 .line {
@@ -212,8 +212,8 @@ ul, li {
     width: 100%;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
     height: 90px;
     overflow: hidden;
 }
