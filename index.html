@@ -118,6 +118,20 @@
         this.nowMinute = now.getMinutes();
         this.nowSecond = now.getSeconds();
     };
+    Clock.prototype.initClock = function () {
+        this.timeLabel.innerHTML = this.getZero(this.nowHour) + ":" + this.getZero(this.nowMinute) + ":" + this.getZero(this.nowSecond);
+        for (var index = 0; index < 4; index++) {
+            this.CreateKeDu("hourPointer", index * 90, 138);
+        }
+        for (index = 0; index < 12; index++) {
+            this.CreateKeDu("minuterPointer", index * 30, 140);
+        }
+        for (index = 0; index < 60; index++) {
+            this.CreateKeDu("secondPointer", index * 6, 142);
+        }
+        this.setPosition();
+    };
+
     Clock.prototype.InterVal = function () {
         clearInterval(this.timer);
         var _this = this;
@@ -136,19 +150,7 @@
     Clock.prototype.getZero = function (value) {
         return value < 10 ? '0' + value : value;
     };
-    Clock.prototype.initClock = function () {
-        this.timeLabel.innerHTML = this.getZero(this.nowHour) + ":" + this.getZero(this.nowMinute) + ":" + this.getZero(this.nowSecond);
-        for (var index = 0; index < 4; index++) {
-            this.CreateKeDu("hourPointer", index * 90, 138);
-        }
-        for (index = 0; index < 12; index++) {
-            this.CreateKeDu("minuterPointer", index * 30, 140);
-        }
-        for (index = 0; index < 60; index++) {
-            this.CreateKeDu("secondPointer", index * 6, 142);
-        }
-        this.setPosition();
-    };
+
 
 
     window.onload = function () {
